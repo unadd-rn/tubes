@@ -86,3 +86,20 @@ def gerbang_keluar():
                 time.sleep(0.2)
 
         print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
+
+
+def pembayaran():
+    #cek apakah kartu terdefinisi
+    if kartu is None:
+        print("kartu tidak terbaca")
+        return False
+    
+    #cek apakah saldo cukup
+    if saldo>=tarif :
+        saldo-=tarif
+        print("pembayaran berhasil!")
+        print("sisa saldo: Rp" +str(saldo))
+        return True
+    else:
+        print("saldo tidak cukup")
+        return False
