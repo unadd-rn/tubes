@@ -43,12 +43,6 @@ golonganKendaraan = [
 
 # ==================== SISTEM GERBANG MASUK =================================
 
-def print_slow(str):
-    for letter in str:
-        sys.stdout.write(letter)
-        sys.stdout.flush()
-        time.sleep(0.2)
-
 # Input saldo
 saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
 kartu = True  # misal kartunya kita anggep aktif
@@ -134,6 +128,7 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
 
 
 
