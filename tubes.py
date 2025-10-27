@@ -98,6 +98,7 @@ while True:
 # ==================== GERBANG KELUAR =================================
 
 pengali = pengali_golongan[golongan - 1]
+gerbang_keluar = gerbang[posisi]
 
 tarif = (tarif_keluar - tarif_masuk)*pengali
 
@@ -156,6 +157,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
