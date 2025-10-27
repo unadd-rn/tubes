@@ -46,16 +46,16 @@ golonganKendaraan = [
 print("=== SISTEM GERBANG MASUK TOL CIPALI ===")
 
 # Input saldo
-saldo = int(input("\nMasukkan saldo awal kartu e-toll Anda (Rp): "))
+saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
 kartu = True  # simulasi kartu aktif
 
 # Tampilkan daftar gerbang
-print("\nDaftar Gerbang Tol:")
+print("Daftar Gerbang Tol:")
 for i in range(len(gerbang)):
     print(i + 1, ".", gerbang[i])
 
 # Input lokasi masuk
-lokasi = int(input("\nMasukkan nomor gerbang masuk: "))
+lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
 if lokasi < 1 or lokasi > len(gerbang):
     print("Pilihan tidak valid!")
     sys.exit()
@@ -65,17 +65,17 @@ jarak_masuk = jarak_cipali[lokasi - 1]
 tarif_masuk = tarif_cipali[lokasi - 1]
 
 # Pilih golongan kendaraan
-print("\nDaftar Golongan Kendaraan:")
+print("Daftar Golongan Kendaraan:")
 for i in range(len(golonganKendaraan)):
     print(i + 1, ".", golonganKendaraan[i])
 
-golongan = int(input("\nMasukkan golongan kendaraan (1-5): "))
+golongan = int(input("Masukkan golongan kendaraan (1-5): "))
 if golongan < 1 or golongan > 5:
     print("Pilihan tidak valid!")
     sys.exit()
 
 # Simulasi deteksi kartu e-toll
-deteksi = input("\nTempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
+deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
 
 if deteksi.lower() == "ya":
     nomorKartu = input("Masukkan nomor kartu e-toll: ")
@@ -150,4 +150,5 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
 
