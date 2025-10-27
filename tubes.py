@@ -55,7 +55,7 @@ for i in range(len(gerbang)):
     print(i + 1, ".", gerbang[i])
 
 # Input lokasi masuk
-lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
+lokasi = int(input("Masukkan nomor gerbang masuk: "))
 if lokasi < 1 or lokasi > len(gerbang):
     print("Pilihan tidak valid!")
     sys.exit()
@@ -150,5 +150,6 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
 
 
