@@ -52,14 +52,14 @@ def print_slow(str):
 
 # Input saldo
 saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
-kartu = True  # simulasi kartu aktif
+kartu = True  # misal kartunya kita anggep aktif
 
-# Tampilkan daftar gerbang
+# ini daftar gerbang
 print("Daftar Gerbang Tol:")
 for i in range(len(gerbang)):
     print(i + 1, ".", gerbang[i])
 
-# Input lokasi masuk
+# ini masukkin lokasi masuk
 lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
 if lokasi_masuk < 1 or lokasi_masuk > len(gerbang) - 1:
     print("Pilihan tidak valid!")
@@ -68,7 +68,7 @@ gerbang_masuk = gerbang[lokasi_masuk - 1]
 jarak_masuk = jarak_cipali[lokasi - 1]
 tarif_masuk = tarif_cipali[lokasi - 1]
 
-# Pilih golongan kendaraan
+# ini milih golongan kendaraan
 print("Daftar Golongan Kendaraan:")
 for i in range(len(golonganKendaraan) - 1):
     print(i + 1, ".", golonganKendaraan[i])
@@ -77,7 +77,7 @@ golongan = int(input("Masukkan golongan kendaraan (1-5): "))
 if golongan < 1 or golongan > 5:
     print("Pilihan tidak valid!")
 
-# Simulasi deteksi kartu e-toll
+# bingungg ini anggep kedeteksi kartu e-toll
 deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
 
 if deteksi.lower() == "ya":
@@ -86,7 +86,6 @@ if deteksi.lower() == "ya":
     print("Golongan kendaraan:", golonganKendaraan[golongan - 1])
     print(f"Saldo Anda saat ini: Rp{saldo}")
 
-    # Animasi masuk tol
     print("🚧 Palang sedang dibuka", end="")
     print_slow("......")
     
@@ -141,6 +140,7 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
 
 
 
