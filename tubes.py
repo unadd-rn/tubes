@@ -29,9 +29,10 @@
 import time
 
 # ==================== DATA DASAR =================================
-gerbang = ["Cikopo", "Kalijati", "Subang", "Cipali", "Cikedung"]
-jarak_cipali = [0, 29, 54, 83, 112]       # contoh jarak dalam km
-tarif_cipali = [0, 5000, 10000, 15000, 20000]
+gerbang = ["Cikopo", "Kalijati", "Subang", "Cikedung", "Kertajati", "Sumberjaya", "Palimanan"]
+
+tarif_cipali = [0, 30500, 75500, 90500, 97000, 115000, 132000]
+
 golonganKendaraan = ["Golongan 1", "Golongan 2", "Golongan 3", "Golongan 4", "Golongan 5"]
 
 # ==================== GERBANG MASUK =================================
@@ -87,7 +88,6 @@ if lokasi_keluar < 1 or lokasi_keluar > len(gerbang):
     exit()
 
 gerbang_keluar = gerbang[lokasi_keluar - 1]
-jarak_keluar = jarak_cipali[lokasi_keluar - 1]
 tarif_keluar = tarif_cipali[lokasi_keluar - 1]
 
 tarif = tarif_keluar - tarif_masuk
@@ -115,6 +115,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
