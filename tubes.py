@@ -1,7 +1,7 @@
 #Guys aku pusing ini anggep aja kita ambil tol Cipali
 
 
-#==================== KAMUS ===================================================
+#================================= KAMUS ===================================================
 #---------------------------------Setting---------------------------------------------------
 #tarif_cipali = int (ini tuh tarif dihtung dari gerbang cipali, cuma nanti kita masuk sesuai input pengguna)
 #gerbang = string
@@ -43,6 +43,13 @@ golonganKendaraan = [
 ]
 
 # ==================== SISTEM GERBANG MASUK =================================
+
+def print_slow(str):
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(0.2)
+
 # Input saldo
 saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
 kartu = True  # simulasi kartu aktif
@@ -74,19 +81,14 @@ if golongan < 1 or golongan > 5:
 deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
 
 if deteksi.lower() == "ya":
-    nomorKartu = input("Masukkan nomor kartu e-toll: ")
     print("✅ Kartu terdeteksi")
-    print("Nomor kartu:", nomorKartu)
     print("Lokasi masuk:", lokasiMasuk)
     print("Golongan kendaraan:", golonganKendaraan[golongan - 1])
     print(f"Saldo Anda saat ini: Rp{saldo}")
 
     # Animasi masuk tol
     print("🚧 Palang sedang dibuka", end="")
-    for i in range(3):
-        print(".", end="")
-        sys.stdout.flush()
-        time.sleep(0.5)
+    print_slow("......")
     
     print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
 
@@ -95,6 +97,9 @@ if deteksi.lower() == "ya":
 else:
     print("❌ Kartu tidak terbaca. Akses ditolak.")
 
+
+
+# ==================== SISTEM GERBANG KELUAR =================================
 def gerbang_keluar():
     keluar = input("Masukkan gerbang keluar:")
     waktu_keluar = input("Masukkan waktu keluar: ")
@@ -116,15 +121,11 @@ def gerbang_keluar():
         print("|                       |"); time.sleep(0.2)
         print("|_______________________|"); time.sleep(0.2)
 
-        def print_slow(str):
-            for letter in str:
-                sys.stdout.write(letter)
-                sys.stdout.flush()
-                time.sleep(0.2)
-
         print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
 
 
+
+# ==================== PEMBAYARAN =================================
 def pembayaran():
     #cek apakah kartu terdefinisi
     if kartu is None:
@@ -140,6 +141,7 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
 
 
 
