@@ -34,11 +34,17 @@ jarak_cipali = [0, 29, 54, 83, 112]       # contoh jarak dalam km
 tarif_cipali = [0, 5000, 10000, 15000, 20000]
 golonganKendaraan = ["Golongan 1", "Golongan 2", "Golongan 3", "Golongan 4", "Golongan 5"]
 
+def print_slow(teks):
+    for huruf in teks:
+        print(huruf, end="", flush=True)
+        time.sleep(0.1)
+    print()
+
 # ==================== GERBANG MASUK =================================
 saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
 kartu = True  # misal kartu aktif
 
-print("Daftar Gerbang Tol:")
+print("\nDaftar Gerbang Tol:")
 for i in range(len(gerbang)):
     print(i + 1, ".", gerbang[i])
 
@@ -50,7 +56,7 @@ else:
     jarak_masuk = jarak_cipali[lokasi_masuk - 1]
     tarif_masuk = tarif_cipali[lokasi_masuk - 1]
 
-    print("Daftar Golongan Kendaraan:")
+    print("\nDaftar Golongan Kendaraan:")
     for i in range(len(golonganKendaraan)):
         print(i + 1, ".", golonganKendaraan[i])
 
@@ -77,7 +83,7 @@ else:
 
 
 # ==================== GERBANG KELUAR =================================
-print("Daftar Gerbang Tol:")
+print("\nDaftar Gerbang Tol:")
 for i in range(len(gerbang)):
     print(i + 1, ".", gerbang[i])
 
@@ -116,46 +122,6 @@ else:
     else:
         print("❌ Saldo tidak cukup.")
 
-
-
-
-# ==================== SISTEM GERBANG KELUAR =================================
-def gerbang_keluar():
-    keluar = input("Masukkan gerbang keluar:")
-    waktu_keluar = input("Masukkan waktu keluar: ")
-
-    #ini tarif_masuk definisiin di bagian Aufa
-    #tarif_keluar definisiin di bagian livy
-    tarif = tarif_keluar - tarif_masuk
-    if pembayaran(tarif):
-        print(" ______________________"); time.sleep(0.2)
-        print("|                       |"); time.sleep(0.2)
-        print("|                       |"); time.sleep(0.2)
-        print("|     Selamat Jalan!    |"); time.sleep(0.2)
-        print("|                       |"); time.sleep(0.2)
-        print("|                       |"); time.sleep(0.2)
-        print("|_______________________|"); time.sleep(0.2)
-
-        print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
-
-
-
-# ==================== PEMBAYARAN =================================
-def pembayaran():
-    #cek apakah kartu terdefinisi
-    if kartu is None:
-        print("kartu tidak terbaca")
-        return False
-    
-    #cek apakah saldo cukup
-    if saldo>=tarif :
-        saldo-=tarif
-        print("pembayaran berhasil!")
-        print("sisa saldo: Rp" +str(saldo))
-        return True
-    else:
-        print("saldo tidak cukup")
-        return False
 
 
 
