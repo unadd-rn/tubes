@@ -26,68 +26,102 @@
 # def pembayaran = bool aja hasilnya
 
 
-import time, sys
+import time
 
-# ==================== DATA DASAR ==========================================
-gerbang = ["Cikopo", "Kalijati", "Subang", "Cikedung", "Kertajati", "Sumberjaya", "Palimanan"]
+# ==================== DATA DASAR =================================
+gerbang = ["Cikopo", "Kalijati", "Subang", "Cipali", "Cikedung"]
+jarak_cipali = [0, 29, 54, 83, 112]       # contoh jarak dalam km
+tarif_cipali = [0, 5000, 10000, 15000, 20000]
+golonganKendaraan = ["Golongan 1", "Golongan 2", "Golongan 3", "Golongan 4", "Golongan 5"]
 
-tarif_cipali = [0, 30500, 75500, 90500, 97000, 115000, 132000]
+def print_slow(teks):
+    for huruf in teks:
+        print(huruf, end="", flush=True)
+        time.sleep(0.1)
+    print()
 
-golonganKendaraan = [
-    "Mobil Penumpang Umum",
-    "Truk Kecil Dua Gandar",
-    "Truk Tiga Gandar",
-    "Truk Besar Empat Gandar",
-    "Truk Lima Gandar atau Lebih"
-]
-
-# ==================== SISTEM GERBANG MASUK =================================
-
-# Input saldo
+# ==================== GERBANG MASUK =================================
 saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
-kartu = True  # misal kartunya kita anggep aktif
+kartu = True  # misal kartu aktif
 
-# ini daftar gerbang
 print("Daftar Gerbang Tol:")
 for i in range(len(gerbang)):
     print(i + 1, ".", gerbang[i])
 
-# ini masukkin lokasi masuk
 lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
-if lokasi_masuk < 1 or lokasi_masuk > len(gerbang) - 1:
+if lokasi_masuk < 1 or lokasi_masuk > len(gerbang):
     print("Pilihan tidak valid!")
-
-gerbang_masuk = gerbang[lokasi_masuk - 1]
-jarak_masuk = jarak_cipali[lokasi - 1]
-tarif_masuk = tarif_cipali[lokasi - 1]
-
-# ini milih golongan kendaraan
-print("Daftar Golongan Kendaraan:")
-for i in range(len(golonganKendaraan) - 1):
-    print(i + 1, ".", golonganKendaraan[i])
-
-golongan = int(input("Masukkan golongan kendaraan (1-5): "))
-if golongan < 1 or golongan > 5:
-    print("Pilihan tidak valid!")
-
-# bingungg ini anggep kedeteksi kartu e-toll
-deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
-
-if deteksi.lower() == "ya":
-    print("✅ Kartu terdeteksi")
-    print("Lokasi masuk:", lokasiMasuk)
-    print("Golongan kendaraan:", golonganKendaraan[golongan - 1])
-    print(f"Saldo Anda saat ini: Rp{saldo}")
-
-    print("🚧 Palang sedang dibuka", end="")
-    print_slow("......")
-    
-    print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
-
-    print("✅ Palang tertutup kembali. Selamat berkendara!\n")
-
 else:
-    print("❌ Kartu tidak terbaca. Akses ditolak.")
+    gerbang_masuk = gerbang[lokasi_masuk - 1]
+    jarak_masuk = jarak_cipali[lokasi_masuk - 1]
+    tarif_masuk = tarif_cipali[lokasi_masuk - 1]
+
+    print("Daftar Golongan Kendaraan:")
+    for i in range(len(golonganKendaraan)):
+        print(i + 1, ".", golonganKendaraan[i])
+
+    golongan = int(input("Masukkan golongan kendaraan (1-5): "))
+    if golongan < 1 or golongan > 5:
+        print("Pilihan tidak valid!")
+    else:
+        deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
+
+        if deteksi.lower() == "ya":
+            print("✅ Kartu terdeteksi")
+            print("Lokasi masuk:", gerbang_masuk)
+            print("Golongan kendaraan:", golonganKendaraan[golongan - 1])
+            print(f"Saldo Anda saat ini: Rp{saldo}")
+
+            print("🚧 Palang sedang dibuka", end="")
+            print_slow("......")
+            print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
+
+            print("✅ Palang tertutup kembali. Selamat berkendara!\n")
+        else:
+            print("❌ Kartu tidak terbaca. Akses ditolak.")
+            exit()
+
+
+# ==================== GERBANG KELUAR =================================
+print("Daftar Gerbang Tol:")
+for i in range(len(gerbang)):
+    print(i + 1, ".", gerbang[i])
+
+lokasi_keluar = int(input("Masukkan nomor gerbang keluar: "))
+if lokasi_keluar < 1 or lokasi_keluar > len(gerbang):
+    print("Pilihan tidak valid!")
+    exit()
+
+gerbang_keluar = gerbang[lokasi_keluar - 1]
+jarak_keluar = jarak_cipali[lokasi_keluar - 1]
+tarif_keluar = tarif_cipali[lokasi_keluar - 1]
+
+tarif = tarif_keluar - tarif_masuk
+
+print(f"\nAnda keluar di {gerbang_keluar}. Tarif perjalanan: Rp{tarif}")
+
+# ==================== PEMBAYARAN =================================
+if not kartu:
+    print("❌ Kartu tidak terbaca.")
+else:
+    if saldo >= tarif:
+        saldo -= tarif
+        print("✅ Pembayaran berhasil!")
+        print("Sisa saldo: Rp", saldo)
+        
+        print()
+        print(" ______________________"); time.sleep(0.2)
+        print("|                       |"); time.sleep(0.2)
+        print("|                       |"); time.sleep(0.2)
+        print("|     Selamat Jalan!    |"); time.sleep(0.2)
+        print("|                       |"); time.sleep(0.2)
+        print("|                       |"); time.sleep(0.2)
+        print("|_______________________|"); time.sleep(0.2)
+        print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
+
+    else:
+        print("❌ Saldo tidak cukup.")
+
 
 
 
@@ -128,6 +162,7 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
 
 
 
