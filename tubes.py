@@ -97,14 +97,43 @@ while True:
 
 # ==================== GERBANG KELUAR =================================
 
-gerbang_keluar = gerbang[posisi]
-tarif_keluar = tarif_cipali[posisi]
-
 pengali = pengali_golongan[golongan - 1]
 
 tarif = (tarif_keluar - tarif_masuk)*pengali
 
-print(f"Anda keluar di {gerbang_keluar}. Tarif perjalanan: Rp{tarif}")
+print("🚗 Anda mendekati gerbang keluar...")
+
+deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
+if deteksi.lower() == "ya":
+    print("✅ Kartu terdeteksi")
+
+    print()
+    
+    print("Mengecek data perjalanan...", end="")
+    print("......", delay=0.25)
+    print("Data berhasil dibaca")
+    
+    print()
+    
+    print("========================================")
+    print(f"Gerbang Masuk : {gerbang_masuk}")
+    print(f"Gerbang Keluar: {gerbang_keluar}")
+    print(f"Golongan      : {golonganKendaraan[golongan - 1]}")
+    print(f"Total tarif   : Rp{tarif:}")
+    print("========================================")
+
+    print()
+
+    konfirmasi = input("Apakah data sudah benar? (ya/tidak): ").lower()
+    if konfirmasi != "ya":
+        print("❌ Transaksi dibatalkan.")
+        exit()
+    else:
+        print()
+        print("Melanjutkan ke proses pembayaran")
+    
+else:
+    print("❌ Kartu tidak terbaca di gerbang keluar. Silakan coba lagi atau hubungi petugas.")
 
 # ==================== PEMBAYARAN =================================
 if not kartu:
@@ -127,6 +156,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
