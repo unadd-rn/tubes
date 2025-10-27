@@ -58,7 +58,6 @@ for i in range(len(gerbang)):
 lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
 if lokasi_masuk < 1 or lokasi_masuk > len(gerbang):
     print("Pilihan tidak valid!")
-    sys.exit()
 
 gerbang_masuk = gerbang[lokasi_masuk - 1]
 jarak_masuk = jarak_cipali[lokasi - 1]
@@ -79,29 +78,29 @@ deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
 
 if deteksi.lower() == "ya":
     nomorKartu = input("Masukkan nomor kartu e-toll: ")
-    print("\n✅ Kartu terdeteksi")
+    print("✅ Kartu terdeteksi")
     print("Nomor kartu:", nomorKartu)
     print("Lokasi masuk:", lokasiMasuk)
     print("Golongan kendaraan:", golonganKendaraan[golongan - 1])
     print(f"Saldo Anda saat ini: Rp{saldo}")
 
     # Animasi masuk tol
-    print("\n🚧 Palang sedang dibuka", end="")
+    print("🚧 Palang sedang dibuka", end="")
     for i in range(3):
         print(".", end="")
         sys.stdout.flush()
         time.sleep(0.5)
 
-    print("\n🚗 Mobil melintas ke jalan tol", end="")
+    print("🚗 Mobil melintas ke jalan tol", end="")
     for i in range(8):
         print("💨", end="")
         sys.stdout.flush()
         time.sleep(0.2)
 
-    print("\n✅ Palang tertutup kembali. Selamat berkendara!\n")
+    print("✅ Palang tertutup kembali. Selamat berkendara!\n")
 
 else:
-    print("\n❌ Kartu tidak terbaca. Akses ditolak.")
+    print("❌ Kartu tidak terbaca. Akses ditolak.")
     sys.exit()
 
 def gerbang_keluar():
@@ -149,6 +148,7 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
 
 
 
