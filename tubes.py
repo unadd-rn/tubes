@@ -124,8 +124,8 @@ if deteksi.lower() == "ya":
 
     print()
 
-    konfirmasi = input("Apakah data sudah benar? (ya/tidak): ").lower()
-    if konfirmasi != "ya":
+    konfirmasi = input("Apakah data sudah benar? (ya/tidak): ")
+    if konfirmasi.lower != "ya":
         print("❌ Transaksi dibatalkan.")
         exit()
     else:
@@ -156,6 +156,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
