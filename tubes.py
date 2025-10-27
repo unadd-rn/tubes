@@ -41,39 +41,43 @@ print("Daftar Gerbang Tol:")
 for i in range(len(gerbang) - 1):
     print(i + 1, ".", gerbang[i])
 
-lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
-if lokasi_masuk < 1 or lokasi_masuk > len(gerbang):
-    print("Pilihan tidak valid!")
-    exit()
-else:
-    gerbang_masuk = gerbang[lokasi_masuk - 1]
-    tarif_masuk = tarif_cipali[lokasi_masuk - 1]
+while True:
+    lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
+    if lokasi_masuk < 1 or lokasi_masuk > len(gerbang):
+        print("Pilihan tidak valid!")
+    else:
+        break
+gerbang_masuk = gerbang[lokasi_masuk - 1]
+tarif_masuk = tarif_cipali[lokasi_masuk - 1]
 
-    print("Daftar Golongan Kendaraan:")
-    for i in range(len(golonganKendaraan)):
+print("Daftar Golongan Kendaraan:")
+for i in range(len(golonganKendaraan)):
         print(i + 1, ".", golonganKendaraan[i])
 
+while True:
     golongan = int(input("Masukkan golongan kendaraan (1-5): "))
     if golongan < 1 or golongan > 5:
         print("Pilihan tidak valid!")
-        exit()
     else:
-        deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
+        break
+        
+deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
+if deteksi.lower() == "ya":
+    print("✅ Kartu terdeteksi")
+    print("Lokasi masuk:", gerbang_masuk)
+    print("Golongan kendaraan:", golonganKendaraan[golongan - 1])
+    print(f"Saldo Anda saat ini: Rp{saldo}")
 
-        if deteksi.lower() == "ya":
-            print("✅ Kartu terdeteksi")
-            print("Lokasi masuk:", gerbang_masuk)
-            print("Golongan kendaraan:", golonganKendaraan[golongan - 1])
-            print(f"Saldo Anda saat ini: Rp{saldo}")
+    print()
 
-            print("🚧 Palang sedang dibuka", end="")
+    print("🚧 Palang sedang dibuka", end="")
             # print_slow("......")
             # print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
 
-            print("✅ Palang tertutup kembali. Selamat berkendara!\n")
-        else:
-            print("❌ Kartu tidak terbaca. Akses ditolak.")
-            exit()
+    print("✅ Palang tertutup kembali. Selamat berkendara!\n")
+else:
+    print("❌ Kartu tidak terbaca. Akses ditolak.")
+    exit()
 
 # ==================== DALAM TOL =================================
 tarif_keluar = 0
@@ -160,6 +164,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
