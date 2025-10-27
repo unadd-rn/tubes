@@ -25,9 +25,6 @@
 # nanti fungsi pembayaran def pembayaran() aja yak
 # def pembayaran = bool aja hasilnya
 
-
-import time
-
 # ==================== DATA DASAR =================================
 gerbang = ["Cikopo", "Kalijati", "Subang", "Cikedung", "Kertajati", "Sumberjaya", "Palimanan"]
 
@@ -39,8 +36,8 @@ golonganKendaraan = ["Golongan 1", "Golongan 2", "Golongan 3", "Golongan 4", "Go
 saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
 kartu = True  # misal kartu aktif
 
-print("\nDaftar Gerbang Tol:")
-for i in range(len(gerbang)):
+print("Daftar Gerbang Tol:")
+for i in range(len(gerbang) - 1):
     print(i + 1, ".", gerbang[i])
 
 lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
@@ -48,10 +45,9 @@ if lokasi_masuk < 1 or lokasi_masuk > len(gerbang):
     print("Pilihan tidak valid!")
 else:
     gerbang_masuk = gerbang[lokasi_masuk - 1]
-    jarak_masuk = jarak_cipali[lokasi_masuk - 1]
     tarif_masuk = tarif_cipali[lokasi_masuk - 1]
 
-    print("\nDaftar Golongan Kendaraan:")
+    print("Daftar Golongan Kendaraan:")
     for i in range(len(golonganKendaraan)):
         print(i + 1, ".", golonganKendaraan[i])
 
@@ -68,31 +64,44 @@ else:
             print(f"Saldo Anda saat ini: Rp{saldo}")
 
             print("🚧 Palang sedang dibuka", end="")
-            print_slow("......")
-            print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
+            # print_slow("......")
+            # print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
 
             print("✅ Palang tertutup kembali. Selamat berkendara!\n")
         else:
             print("❌ Kartu tidak terbaca. Akses ditolak.")
             exit()
 
+# ==================== DALAM TOL =================================
+tarif_keluar = 0
+posisi = lokasi_masuk - 1
+
+while True:
+    if posisi == 6:
+        print(f"Anda ada di gerbang terakhir, tol {gerbang[posisi]}")
+        break
+    elif posisi+1 <= 6:
+        print(f"Anda sedang berada di tol {gerbang[posisi]}")
+        print(f"1. Lanjut ke tol {gerbang[posisi+1]}")
+        print(f"2. Keluar tol")
+
+    pilihan = input("Pilihan Anda (1/2): ")
+    if pilihan == "1":
+        tarif_keluar += tarif_cipali[posisi]
+        posisi += 1
+    elif pilihan == "2":
+        print(f"Anda keluar dari tol {gerbang[posisi]}")
+    else:
+        print("Pilihan Anda tidak valid, silakan coba lagi.")
 
 # ==================== GERBANG KELUAR =================================
-print("\nDaftar Gerbang Tol:")
-for i in range(len(gerbang)):
-    print(i + 1, ".", gerbang[i])
 
-lokasi_keluar = int(input("Masukkan nomor gerbang keluar: "))
-if lokasi_keluar < 1 or lokasi_keluar > len(gerbang):
-    print("Pilihan tidak valid!")
-    exit()
-
-gerbang_keluar = gerbang[lokasi_keluar - 1]
-tarif_keluar = tarif_cipali[lokasi_keluar - 1]
+gerbang_keluar = gerbang[posisi]
+tarif_keluar = tarif_cipali[posisi]
 
 tarif = tarif_keluar - tarif_masuk
 
-print(f"\nAnda keluar di {gerbang_keluar}. Tarif perjalanan: Rp{tarif}")
+print(f"Anda keluar di {gerbang_keluar}. Tarif perjalanan: Rp{tarif}")
 
 # ==================== PEMBAYARAN =================================
 if not kartu:
@@ -104,18 +113,17 @@ else:
         print("Sisa saldo: Rp", saldo)
         
         print()
-        print(" ______________________"); time.sleep(0.2)
-        print("|                       |"); time.sleep(0.2)
-        print("|                       |"); time.sleep(0.2)
-        print("|     Selamat Jalan!    |"); time.sleep(0.2)
-        print("|                       |"); time.sleep(0.2)
-        print("|                       |"); time.sleep(0.2)
-        print("|_______________________|"); time.sleep(0.2)
-        print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
+        print(" ______________________")
+        print("|                       |")
+        print("|                       |")
+        print("|     Selamat Jalan!    |")
+        print("|                       |")
+        print("|                       |")
+        print("|_______________________|")
+        # print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
 
     else:
         print("❌ Saldo tidak cukup.")
-
 
 
 
