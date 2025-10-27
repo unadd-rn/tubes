@@ -1,4 +1,4 @@
-#Guys aku pusing ini anggep aja kita ambil tol Cipali
+# Guys aku pusing ini anggep aja kita ambil tol Cipali
 
 
 #================================= KAMUS ===================================================
@@ -88,7 +88,7 @@ while True:
 
     pilihan = input("Pilihan Anda (1/2): ")
     if pilihan == "1":
-        tarif_keluar += tarif_cipali[posisi]
+        tarif_keluar = tarif_cipali[posisi]
         posisi += 1
     elif pilihan == "2":
         print(f"Anda keluar dari tol {gerbang[posisi]}")
@@ -111,7 +111,7 @@ if deteksi.lower() == "ya":
     print()
     
     print("Mengecek data perjalanan...", end="")
-    print("......", delay=0.25)
+    print("......")
     print("Data berhasil dibaca")
     
     print()
@@ -120,21 +120,21 @@ if deteksi.lower() == "ya":
     print(f"Gerbang Masuk : {gerbang_masuk}")
     print(f"Gerbang Keluar: {gerbang_keluar}")
     print(f"Golongan      : {golonganKendaraan[golongan - 1]}")
-    print(f"Total tarif   : Rp{tarif:}")
+    print(f"Total tarif   : Rp{tarif}")
     print("========================================")
 
     print()
 
     konfirmasi = input("Apakah data sudah benar? (ya/tidak): ")
-    if konfirmasi.lower != "ya":
-        print("❌ Transaksi dibatalkan.")
-        exit()
-    else:
+    if konfirmasi.lower() == "ya":
         print()
         print("Melanjutkan ke proses pembayaran")
+    else:
+        print("❌ Transaksi dibatalkan.")
+        exit()
     
 else:
-    print("❌ Kartu tidak terbaca di gerbang keluar. Silakan coba lagi atau hubungi petugas.")
+    print("❌ Kartu tidak terbaca di gerbang keluar. Silakan coba lagi.")
 
 # ==================== PEMBAYARAN =================================
 if not kartu:
@@ -157,8 +157,6 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
-
-
 
 
 
