@@ -26,36 +26,83 @@
 # def pembayaran = bool aja hasilnya
 
 
-tarif_cipali = {
-    0,
-    30500,
-    75500,
-    90500,
-    97000,
-    115000,
-    132000
-}
+import time, sys
 
-jarak_cipali = {
-    72,
-    98,
-    109,
-    137,
-    158,
-    174,
-    188
-}
+# ==================== DATA DASAR ==========================================
+gerbang = ["Cikopo", "Kalijati", "Subang", "Cikedung", "Kertajati", "Sumberjaya", "Palimanan"]
 
-gerbang = {
-    "Cikopo", 
-    "Kalijati", 
-    "Subang", 
-    "Cikedung", 
-    "Kertajati", 
-    "Sumberjaya", 
-    "Palimanan"
-    }
+tarif_cipali = [0, 30500, 75500, 90500, 97000, 115000, 132000]
+jarak_cipali = [72, 98, 109, 137, 158, 174, 188]
 
+golonganKendaraan = [
+    "Mobil Penumpang Umum",
+    "Truk Kecil Dua Gandar",
+    "Truk Tiga Gandar",
+    "Truk Besar Empat Gandar",
+    "Truk Lima Gandar atau Lebih"
+]
+
+# ==================== SISTEM GERBANG MASUK =================================
+print("=== SISTEM GERBANG MASUK TOL CIPALI ===")
+
+# Input saldo
+saldo = int(input("\nMasukkan saldo awal kartu e-toll Anda (Rp): "))
+kartu = True  # simulasi kartu aktif
+
+# Tampilkan daftar gerbang
+print("\nDaftar Gerbang Tol:")
+for i in range(len(gerbang)):
+    print(i + 1, ".", gerbang[i])
+
+# Input lokasi masuk
+lokasi = int(input("\nMasukkan nomor gerbang masuk: "))
+if lokasi < 1 or lokasi > len(gerbang):
+    print("Pilihan tidak valid!")
+    sys.exit()
+
+lokasiMasuk = gerbang[lokasi - 1]
+jarak_masuk = jarak_cipali[lokasi - 1]
+tarif_masuk = tarif_cipali[lokasi - 1]
+
+# Pilih golongan kendaraan
+print("\nDaftar Golongan Kendaraan:")
+for i in range(len(golonganKendaraan)):
+    print(i + 1, ".", golonganKendaraan[i])
+
+golongan = int(input("\nMasukkan golongan kendaraan (1-5): "))
+if golongan < 1 or golongan > 5:
+    print("Pilihan tidak valid!")
+    sys.exit()
+
+# Simulasi deteksi kartu e-toll
+deteksi = input("\nTempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
+
+if deteksi.lower() == "ya":
+    nomorKartu = input("Masukkan nomor kartu e-toll: ")
+    print("\n✅ Kartu terdeteksi")
+    print("Nomor kartu:", nomorKartu)
+    print("Lokasi masuk:", lokasiMasuk)
+    print("Golongan kendaraan:", golonganKendaraan[golongan - 1])
+    print(f"Saldo Anda saat ini: Rp{saldo}")
+
+    # Animasi masuk tol
+    print("\n🚧 Palang sedang dibuka", end="")
+    for i in range(3):
+        print(".", end="")
+        sys.stdout.flush()
+        time.sleep(0.5)
+
+    print("\n🚗 Mobil melintas ke jalan tol", end="")
+    for i in range(8):
+        print("💨", end="")
+        sys.stdout.flush()
+        time.sleep(0.2)
+
+    print("\n✅ Palang tertutup kembali. Selamat berkendara!\n")
+
+else:
+    print("\n❌ Kartu tidak terbaca. Akses ditolak.")
+    sys.exit()
 
 def gerbang_keluar():
     keluar = input("Masukkan gerbang keluar:")
@@ -103,3 +150,4 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
