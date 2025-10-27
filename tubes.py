@@ -32,7 +32,6 @@ import time, sys
 gerbang = ["Cikopo", "Kalijati", "Subang", "Cikedung", "Kertajati", "Sumberjaya", "Palimanan"]
 
 tarif_cipali = [0, 30500, 75500, 90500, 97000, 115000, 132000]
-jarak_cipali = [72, 98, 109, 137, 158, 174, 188]
 
 golonganKendaraan = [
     "Mobil Penumpang Umum",
@@ -103,11 +102,6 @@ def gerbang_keluar():
     keluar = input("Masukkan gerbang keluar:")
     waktu_keluar = input("Masukkan waktu keluar: ")
 
-    #jarak_masuk definisiin di bagian aufa
-    #jarak_keluar definisiin di bagian livy
-
-    jarak = jarak_keluar - jarak_masuk
-
     #ini tarif_masuk definisiin di bagian Aufa
     #tarif_keluar definisiin di bagian livy
     tarif = tarif_keluar - tarif_masuk
@@ -140,6 +134,7 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
 
 
 
