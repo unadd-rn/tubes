@@ -55,12 +55,12 @@ for i in range(len(gerbang)):
     print(i + 1, ".", gerbang[i])
 
 # Input lokasi masuk
-lokasi = int(input("Masukkan nomor gerbang masuk: "))
-if lokasi < 1 or lokasi > len(gerbang):
+lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
+if lokasi_masuk < 1 or lokasi_masuk > len(gerbang):
     print("Pilihan tidak valid!")
     sys.exit()
 
-lokasiMasuk = gerbang[lokasi - 1]
+gerbang_masuk = gerbang[lokasi_masuk - 1]
 jarak_masuk = jarak_cipali[lokasi - 1]
 tarif_masuk = tarif_cipali[lokasi - 1]
 
@@ -125,7 +125,6 @@ def gerbang_keluar():
         print("|                       |"); time.sleep(0.2)
         print("|_______________________|"); time.sleep(0.2)
 
-        import sys, time
         def print_slow(str):
             for letter in str:
                 sys.stdout.write(letter)
@@ -150,6 +149,7 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
 
 
 
