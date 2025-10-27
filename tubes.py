@@ -34,12 +34,6 @@ jarak_cipali = [0, 29, 54, 83, 112]       # contoh jarak dalam km
 tarif_cipali = [0, 5000, 10000, 15000, 20000]
 golonganKendaraan = ["Golongan 1", "Golongan 2", "Golongan 3", "Golongan 4", "Golongan 5"]
 
-def print_slow(teks):
-    for huruf in teks:
-        print(huruf, end="", flush=True)
-        time.sleep(0.1)
-    print()
-
 # ==================== GERBANG MASUK =================================
 saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
 kartu = True  # misal kartu aktif
@@ -121,6 +115,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
