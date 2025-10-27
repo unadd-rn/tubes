@@ -71,7 +71,6 @@ for i in range(len(golonganKendaraan)):
 golongan = int(input("Masukkan golongan kendaraan (1-5): "))
 if golongan < 1 or golongan > 5:
     print("Pilihan tidak valid!")
-    sys.exit()
 
 # Simulasi deteksi kartu e-toll
 deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
@@ -90,18 +89,13 @@ if deteksi.lower() == "ya":
         print(".", end="")
         sys.stdout.flush()
         time.sleep(0.5)
-
-    print("🚗 Mobil melintas ke jalan tol", end="")
-    for i in range(8):
-        print("💨", end="")
-        sys.stdout.flush()
-        time.sleep(0.2)
+    
+    print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
 
     print("✅ Palang tertutup kembali. Selamat berkendara!\n")
 
 else:
     print("❌ Kartu tidak terbaca. Akses ditolak.")
-    sys.exit()
 
 def gerbang_keluar():
     keluar = input("Masukkan gerbang keluar:")
@@ -148,6 +142,7 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
 
 
 
