@@ -44,6 +44,7 @@ for i in range(len(gerbang) - 1):
 lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
 if lokasi_masuk < 1 or lokasi_masuk > len(gerbang):
     print("Pilihan tidak valid!")
+    exit()
 else:
     gerbang_masuk = gerbang[lokasi_masuk - 1]
     tarif_masuk = tarif_cipali[lokasi_masuk - 1]
@@ -55,6 +56,7 @@ else:
     golongan = int(input("Masukkan golongan kendaraan (1-5): "))
     if golongan < 1 or golongan > 5:
         print("Pilihan tidak valid!")
+        exit()
     else:
         deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
 
@@ -92,6 +94,7 @@ while True:
         posisi += 1
     elif pilihan == "2":
         print(f"Anda keluar dari tol {gerbang[posisi]}")
+        break
     else:
         print("Pilihan Anda tidak valid, silakan coba lagi.")
 
@@ -157,6 +160,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
