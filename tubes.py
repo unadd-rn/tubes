@@ -29,6 +29,7 @@
 gerbang = ["Cikopo", "Kalijati", "Subang", "Cikedung", "Kertajati", "Sumberjaya", "Palimanan"]
 
 tarif_cipali = [0, 30500, 75500, 90500, 97000, 115000, 132000]
+pengali_golongan = [1, 1.5, 1.5, 2, 2]
 
 golonganKendaraan = ["Golongan 1", "Golongan 2", "Golongan 3", "Golongan 4", "Golongan 5"]
 
@@ -99,7 +100,9 @@ while True:
 gerbang_keluar = gerbang[posisi]
 tarif_keluar = tarif_cipali[posisi]
 
-tarif = tarif_keluar - tarif_masuk
+pengali = pengali_golongan[golongan - 1]
+
+tarif = (tarif_keluar - tarif_masuk)*pengali
 
 print(f"Anda keluar di {gerbang_keluar}. Tarif perjalanan: Rp{tarif}")
 
