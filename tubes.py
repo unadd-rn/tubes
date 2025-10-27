@@ -70,7 +70,7 @@ tarif_masuk = tarif_cipali[lokasi - 1]
 
 # Pilih golongan kendaraan
 print("Daftar Golongan Kendaraan:")
-for i in range(len(golonganKendaraan)):
+for i in range(len(golonganKendaraan) - 1):
     print(i + 1, ".", golonganKendaraan[i])
 
 golongan = int(input("Masukkan golongan kendaraan (1-5): "))
@@ -141,6 +141,7 @@ def pembayaran():
     else:
         print("saldo tidak cukup")
         return False
+
 
 
 
