@@ -60,9 +60,9 @@ else:
 
         if deteksi.lower() == "ya":
             print("✅ Kartu terdeteksi")
-            print("Lokasi masuk:", gerbang_masuk)
-            print("Golongan kendaraan:", golonganKendaraan[golongan - 1])
-            print(f"Saldo Anda saat ini: Rp{saldo}")
+            print("Lokasi masuk       :", gerbang_masuk)
+            print("Golongan kendaraan :", golonganKendaraan[golongan - 1])
+            print("Saldo Anda saat ini: Rp", saldo)
 
             print("🚧 Palang sedang dibuka", end="")
             # print_slow("......")
@@ -157,6 +157,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
