@@ -122,7 +122,7 @@ deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
     if deteksi.lower() == "ya":
         break
     else:
-    print("❌ Kartu tidak terbaca di gerbang keluar. Silakan coba lagi atau hubungi petugas.")
+        print("❌ Kartu tidak terbaca di gerbang keluar. Silakan coba lagi atau hubungi petugas.")
 
 print("✅ Kartu terdeteksi")
 
@@ -172,6 +172,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
