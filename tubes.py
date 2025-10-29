@@ -38,10 +38,6 @@ saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
 print()
 kartu = True  # misal kartu aktif
 
-saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
-print()
-kartu = True  # misal kartu aktif
-
 lokasisesuai = False
 while lokasisesuai == False:
     print("Daftar Gerbang Tol:")
@@ -218,6 +214,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
