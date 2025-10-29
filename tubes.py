@@ -107,50 +107,6 @@ while True:
         print(f"Anda keluar dari tol {gerbang[posisi]}")
     else:
         print("Pilihan Anda tidak valid, silakan coba lagi.")
-    
-# ==================== DALAM TOL =================================
-tarif_keluar = 0
-posisi = lokasi_masuk - 1
-
-while True:
-    if posisi == 6:
-        print(f"Anda ada di gerbang terakhir, tol {gerbang[posisi]}")
-        break
-    elif posisi+1 <= 6:
-        print(f"Anda sedang berada di tol {gerbang[posisi]}")
-        print(f"1. Lanjut ke tol {gerbang[posisi+1]}")
-        print(f"2. Keluar tol")
-
-    pilihan = input("Pilihan Anda (1/2): ")
-    if pilihan == "1":
-        tarif_keluar += tarif_cipali[posisi]
-        posisi += 1
-    elif pilihan == "2":
-        print(f"Anda keluar dari tol {gerbang[posisi]}")
-    else:
-        print("Pilihan Anda tidak valid, silakan coba lagi.")
-        
-# ==================== DALAM TOL =================================
-tarif_keluar = 0
-posisi = lokasi_masuk - 1
-
-while True:
-    if posisi == 6:
-        print(f"Anda ada di gerbang terakhir, tol {gerbang[posisi]}")
-        break
-    elif posisi+1 <= 6:
-        print(f"Anda sedang berada di tol {gerbang[posisi]}")
-        print(f"1. Lanjut ke tol {gerbang[posisi+1]}")
-        print(f"2. Keluar tol")
-
-    pilihan = input("Pilihan Anda (1/2): ")
-    if pilihan == "1":
-        tarif_keluar += tarif_cipali[posisi]
-        posisi += 1
-    elif pilihan == "2":
-        print(f"Anda keluar dari tol {gerbang[posisi]}")
-    else:
-        print("Pilihan Anda tidak valid, silakan coba lagi.")
 
 # ==================== GERBANG KELUAR =================================
 
@@ -214,6 +170,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
