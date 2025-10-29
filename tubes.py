@@ -117,37 +117,39 @@ tarif = (tarif_keluar - tarif_masuk)*pengali
 
 print("🚗 Anda mendekati gerbang keluar...")
 
+while True:
 deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
-if deteksi.lower() == "ya":
-    print("✅ Kartu terdeteksi")
-
-    print()
-    
-    print("Mengecek data perjalanan...", end="")
-    print("......", delay=0.25)
-    print("Data berhasil dibaca")
-    
-    print()
-    
-    print("========================================")
-    print(f"Gerbang Masuk : {gerbang_masuk}")
-    print(f"Gerbang Keluar: {gerbang_keluar}")
-    print(f"Golongan      : {golonganKendaraan[golongan - 1]}")
-    print(f"Total tarif   : Rp{tarif:}")
-    print("========================================")
-
-    print()
-
-    konfirmasi = input("Apakah data sudah benar? (ya/tidak): ")
-    if konfirmasi.lower != "ya":
-        print("❌ Transaksi dibatalkan.")
-        exit()
+    if deteksi.lower() == "ya":
+        break
     else:
-        print()
-        print("Melanjutkan ke proses pembayaran")
-    
-else:
     print("❌ Kartu tidak terbaca di gerbang keluar. Silakan coba lagi atau hubungi petugas.")
+
+print("✅ Kartu terdeteksi")
+
+print()
+    
+print("Mengecek data perjalanan...", end="")
+print("......")
+print("Data berhasil dibaca")
+    
+print()
+    
+print("========================================")
+print(f"Gerbang Masuk : {gerbang_masuk}")
+print(f"Gerbang Keluar: {gerbang_keluar}")
+print(f"Golongan      : {golonganKendaraan[golongan - 1]}")
+print(f"Total tarif   : Rp{tarif:}")
+print("========================================")
+
+print()
+
+konfirmasi = input("Apakah data sudah benar? (ya/tidak): ")
+if konfirmasi.lower != "ya":
+    print("❌ Transaksi dibatalkan.")
+    exit()
+else:
+    print()
+    print("Melanjutkan ke proses pembayaran")
 
 # ==================== PEMBAYARAN =================================
 if not kartu:
@@ -170,6 +172,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
