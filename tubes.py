@@ -37,6 +37,8 @@ golonganKendaraan = ["Golongan 1", "Golongan 2", "Golongan 3", "Golongan 4", "Go
 saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
 kartu = True  # misal kartu aktif
 
+print()
+
 print("Daftar Gerbang Tol:")
 for i in range(len(gerbang) - 1):
     print(i + 1, ".", gerbang[i])
@@ -48,6 +50,8 @@ else:
     gerbang_masuk = gerbang[lokasi_masuk - 1]
     tarif_masuk = tarif_cipali[lokasi_masuk - 1]
 
+    print()
+    
     print("Daftar Golongan Kendaraan:")
     for i in range(len(golonganKendaraan)):
         print(i + 1, ".", golonganKendaraan[i])
@@ -56,18 +60,23 @@ else:
     if golongan < 1 or golongan > 5:
         print("Pilihan tidak valid!")
     else:
+        print()
         deteksi = input("Tempelkan kartu e-toll (ketik 'ya' jika terdeteksi): ")
 
+        print()
+        
         if deteksi.lower() == "ya":
             print("✅ Kartu terdeteksi")
             print("Lokasi masuk       :", gerbang_masuk)
             print("Golongan kendaraan :", golonganKendaraan[golongan - 1])
             print("Saldo Anda saat ini: Rp", saldo)
 
-            print("🚧 Palang sedang dibuka", end="")
+            print()
+            
+            print("🚧 Palang sedang dibuka")
             # print_slow("......")
             # print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
-
+            
             print("✅ Palang tertutup kembali. Selamat berkendara!\n")
         else:
             print("❌ Kartu tidak terbaca. Akses ditolak.")
@@ -157,6 +166,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
