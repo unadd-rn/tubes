@@ -1,23 +1,23 @@
-#Guys aku pusing ini anggep aja kita ambil tol Cipali
+# Guys aku pusing ini anggep aja kita ambil tol Cipali
 
 
-#================================= KAMUS ===================================================
-#---------------------------------Setting---------------------------------------------------
-#tarif_cipali = int (ini tuh tarif dihtung dari gerbang cipali, cuma nanti kita masuk sesuai input pengguna)
-#gerbang = string
+# ================================= KAMUS ===================================================
+# ---------------------------------Setting---------------------------------------------------
+# tarif_cipali = int (ini tuh tarif dihtung dari gerbang cipali, cuma nanti kita masuk sesuai input pengguna)
+# gerbang = string
 
-#------------------------------dalam sistem---------------------------------
+# ------------------------------dalam sistem---------------------------------
 # Masukk
-#lokasi_masuk = int(input) = nanti kita kasih pilihan terus mereka input angka
-#gerbang_masuk = gerbang[lokasi_masuk] = string
-#jarak_masuk = jarak_cipali[lokasi_masuk]
-#tarif_masuk = tarif_cipali[lokasi_masuk] = int
+# lokasi_masuk = int(input) = nanti kita kasih pilihan terus mereka input angka
+# gerbang_masuk = gerbang[lokasi_masuk] = string
+# jarak_masuk = jarak_cipali[lokasi_masuk]
+# tarif_masuk = tarif_cipali[lokasi_masuk] = int
 
 # Keluarr
-#lokasi_keluar = konsepnya sama kayak lokasi masuk
-#gerbang_keluar = gerbang[lokasi_keluar] = string
-#jarak_keluar = jarak_cipali[keluar]
-#tarif_keluar = tarif_cipali[lokasi_keluar]
+# lokasi_keluar = konsepnya sama kayak lokasi masuk
+# gerbang_keluar = gerbang[lokasi_keluar] = string
+# jarak_keluar = jarak_cipali[keluar]
+# tarif_keluar = tarif_cipali[lokasi_keluar]
 
 # Pembayaran
 # Ini jadiin def aja biar bisa aku call di akhir pls <3
@@ -26,12 +26,14 @@
 # def pembayaran = bool aja hasilnya
 
 # ==================== DATA DASAR =================================
-gerbang = ["Cikopo", "Kalijati", "Subang", "Cikedung", "Kertajati", "Sumberjaya", "Palimanan"]
+gerbang = ["Cikopo", "Kalijati", "Subang", "Cikedung",
+           "Kertajati", "Sumberjaya", "Palimanan"]
 
 tarif_cipali = [0, 30500, 75500, 90500, 97000, 115000, 132000]
 pengali_golongan = [1, 1.5, 1.5, 2, 2]
 
-golonganKendaraan = ["Mobil penumpang umum", "Truk kecil 2 gandar", "Truk 3 gandar", "Truk 4 gandar", "Truk 5 gandar"]
+golonganKendaraan = ["Mobil penumpang umum", "Truk kecil 2 gandar",
+                     "Truk 3 gandar", "Truk 4 gandar", "Truk 5 gandar"]
 
 # ==================== GERBANG MASUK =================================
 
@@ -46,11 +48,11 @@ while lokasisesuai == False:
         print(i + 1, ".", gerbang[i])
     lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
 
-    if lokasi_masuk >= 1 and lokasi_masuk < len(gerbang) :
+    if lokasi_masuk >= 1 and lokasi_masuk < len(gerbang):
         gerbang_masuk = gerbang[lokasi_masuk - 1]
         tarif_masuk = tarif_cipali[lokasi_masuk - 1]
         lokasisesuai = True
-    else :
+    else:
         print("❌Pilihan tidak valid! Silakan ulangi.")
     print()
 
@@ -62,7 +64,7 @@ while golongansesuai == False:
     golongan = int(input("Masukkan golongan (1-5): "))
     if golongan >= 1 and golongan <= 5:
         golongansesuai = True
-    else :
+    else:
         print("❌Pilihan tidak valid! Silakan ulangi.")
     print()
 
@@ -79,7 +81,7 @@ while kartuterdeteksi == False:
         print("Golongan kendaraan :", golonganKendaraan[golongan - 1])
         print("Saldo Anda saat ini: Rp", saldo)
         print("========================================")
-    else :
+    else:
         print("❌ Kartu tidak terbaca. Coba lagi.")
     print()
 
@@ -101,8 +103,9 @@ while True:
         print(f"2. Keluar tol")
 
     pilihan = input("Pilihan Anda (1/2): ")
+    print("========================================")
     if pilihan == "1":
-        tarif_keluar += tarif_cipali[posisi]
+        tarif_keluar = tarif_cipali[posisi + 1]
         posisi += 1
     elif pilihan == "2":
         print(f"Anda keluar dari tol {gerbang[posisi]}")
@@ -129,13 +132,13 @@ while True:
 print("✅ Kartu terdeteksi")
 
 print()
-    
+
 print("Mengecek data perjalanan...", end="")
 print("......")
 print("Data berhasil dibaca")
-    
+
 print()
-    
+
 print("========================================")
 print(f"Gerbang Masuk : {gerbang_masuk}")
 print(f"Gerbang Keluar: {gerbang_keluar}")
@@ -155,7 +158,7 @@ else:
         saldo -= tarif
         print("✅ Pembayaran berhasil!")
         print("Sisa saldo: Rp", saldo)
-        
+
         print()
         print(" ______________________")
         print("|                       |")
@@ -168,34 +171,4 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
