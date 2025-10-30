@@ -31,10 +31,10 @@ gerbang = ["Cikopo", "Kalijati", "Subang", "Cikedung", "Kertajati", "Sumberjaya"
 tarif_cipali = [0, 30500, 75500, 90500, 97000, 115000, 132000]
 pengali_golongan = [1, 1.5, 1.5, 2, 2]
 
-golonganKendaraan = ["Golongan 1", "Golongan 2", "Golongan 3", "Golongan 4", "Golongan 5"]
-#Ini tambahin jenis kendaraan
+golonganKendaraan = ["Mobil penumpang umum", "Truk kecil 2 gandar", "Truk 3 gandar", "Truk 4 gandar", "Truk 5 gandar"]
 
 # ==================== GERBANG MASUK =================================
+
 saldo = int(input("Masukkan saldo awal kartu e-toll Anda (Rp): "))
 print()
 kartu = True  # misal kartu aktif
@@ -58,7 +58,7 @@ golongansesuai = False
 while golongansesuai == False:
     print("Daftar Golongan Kendaraan:")
     for i in range(len(golonganKendaraan)):
-        print(i + 1, ".", golonganKendaraan[i])
+        print(i + 1, ". Golongan", i+1, ":", golonganKendaraan[i])
     golongan = int(input("Masukkan golongan (1-5): "))
     if golongan >= 1 and golongan <= 5:
         golongansesuai = True
@@ -106,6 +106,7 @@ while True:
         posisi += 1
     elif pilihan == "2":
         print(f"Anda keluar dari tol {gerbang[posisi]}")
+        break
     else:
         print("Pilihan Anda tidak valid, silakan coba lagi.")
 
@@ -167,6 +168,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
