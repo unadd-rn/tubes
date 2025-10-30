@@ -143,13 +143,7 @@ print("========================================")
 
 print()
 
-konfirmasi = input("Apakah data sudah benar? (ya/tidak): ")
-if konfirmasi.lower != "ya":
-    print("❌ Transaksi dibatalkan.")
-    exit()
-else:
-    print()
-    print("Melanjutkan ke proses pembayaran")
+print("Melanjutkan ke proses pembayaran")
 
 # ==================== PEMBAYARAN =================================
 if not kartu:
@@ -172,6 +166,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
