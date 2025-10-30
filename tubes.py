@@ -106,7 +106,6 @@ while True:
         posisi += 1
     elif pilihan == "2":
         print(f"Anda keluar dari tol {gerbang[posisi]}")
-        break
     else:
         print("Pilihan Anda tidak valid, silakan coba lagi.")
 
@@ -168,6 +167,7 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
