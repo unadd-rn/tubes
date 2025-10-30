@@ -45,7 +45,7 @@ lokasisesuai = False
 while lokasisesuai == False:
     print("Daftar Gerbang Tol:")
     for i in range(len(gerbang) - 1):
-        print(i + 1, ".", gerbang[i])
+        print(f"{i + 1}.", gerbang[i])
     lokasi_masuk = int(input("Masukkan nomor gerbang masuk: "))
 
     if lokasi_masuk >= 1 and lokasi_masuk < len(gerbang):
@@ -60,7 +60,7 @@ golongansesuai = False
 while golongansesuai == False:
     print("Daftar Golongan Kendaraan:")
     for i in range(len(golonganKendaraan)):
-        print(i + 1, ". Golongan", i+1, ":", golonganKendaraan[i])
+        print(f"{i + 1}. Golongan {i+1}:", golonganKendaraan[i])
     golongan = int(input("Masukkan golongan (1-5): "))
     if golongan >= 1 and golongan <= 5:
         golongansesuai = True
@@ -171,4 +171,5 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
