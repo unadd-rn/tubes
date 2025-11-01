@@ -160,7 +160,7 @@ else:
         print("Sisa saldo: Rp", saldo)
 
         print()
-        print(" ______________________")
+        print(" _______________________")
         print("|                       |")
         print("|                       |")
         print("|     Selamat Jalan!    |")
@@ -171,5 +171,6 @@ else:
 
     else:
         print("❌ Saldo tidak cukup.")
+
 
 
