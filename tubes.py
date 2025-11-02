@@ -107,6 +107,8 @@ while True:
     if pilihan == "1":
         tarif_keluar = tarif_cipali[posisi + 1]
         posisi += 1
+    elif pilihan == "2" and posisi == lokasi_masuk - 1:
+        print("❌ Tidak bisa keluar di gerbang yang sama! Silakan lanjut ke gerbang selanjutnya terlebih dahulu.")
     elif pilihan == "2":
         tarif_keluar = tarif_cipali[posisi]
         print(f"Anda keluar dari tol {gerbang[posisi]}")
