@@ -122,8 +122,6 @@ pengali = pengali_golongan[golongan - 1]
 gerbang_keluar = gerbang[posisi]
 
 tarif = (tarif_keluar - tarif_masuk)*pengali
-print(f"keluar{tarif_keluar}")
-print(f"masuk{tarif_masuk}")
 
 print("🚗 Anda mendekati gerbang keluar...")
 
