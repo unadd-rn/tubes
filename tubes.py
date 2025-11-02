@@ -90,9 +90,8 @@ print("✅ Palang tertutup kembali. Selamat berkendara!")
 print()
 
 # ==================== DALAM TOL =================================
-tarif = 0
+tarif_keluar = 0
 posisi = lokasi_masuk - 1
-pengali = pengali_golongan[golongan - 1]
 
 while True:
     if posisi == 6:
@@ -106,17 +105,23 @@ while True:
     pilihan = input("Pilihan Anda (1/2): ")
     print("========================================")
     if pilihan == "1":
-        tarif = tarif_cipali[posisi + 1]*pengali
+        tarif_keluar = tarif_cipali[posisi + 1]
         posisi += 1
     elif pilihan == "2":
-        tarif = tarif_cipali[posisi]*pengali
+        tarif_keluar = tarif_cipali[posisi]
         print(f"Anda keluar dari tol {gerbang[posisi]}")
         break
     else:
         print("Pilihan Anda tidak valid, silakan coba lagi.")
 
 # ==================== GERBANG KELUAR =================================
+
+pengali = pengali_golongan[golongan - 1]
 gerbang_keluar = gerbang[posisi]
+
+tarif = (tarif_keluar - tarif_masuk)*pengali
+print(f"keluar{tarif_keluar}")
+print(f"masuk{tarif_masuk}")
 
 print("🚗 Anda mendekati gerbang keluar...")
 
@@ -149,13 +154,16 @@ print()
 print("Melanjutkan ke proses pembayaran")
 
 # ==================== PEMBAYARAN =================================
-if saldo >= tarif:
+if not kartu:
+    print("❌ Kartu tidak terbaca.")
+else:
+    if saldo >= tarif:
         saldo -= tarif
         print("✅ Pembayaran berhasil!")
         print("Sisa saldo: Rp", saldo)
 
         print()
-        print(" ______________________")
+        print(" _______________________")
         print("|                       |")
         print("|                       |")
         print("|     Selamat Jalan!    |")
@@ -164,6 +172,5 @@ if saldo >= tarif:
         print("|_______________________|")
         # print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
 
-else:
+    else:
         print("❌ Saldo tidak cukup.")
-
