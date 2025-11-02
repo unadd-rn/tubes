@@ -164,10 +164,10 @@ if saldo >= tarif:
         print("|                       |")
         print("|                       |")
         print("|_______________________|")
-        # print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
 
 else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
