@@ -151,10 +151,7 @@ print()
 print("Melanjutkan ke proses pembayaran")
 
 # ==================== PEMBAYARAN =================================
-if not kartu:
-    print("❌ Kartu tidak terbaca.")
-else:
-    if saldo >= tarif:
+if saldo >= tarif:
         saldo -= tarif
         print("✅ Pembayaran berhasil!")
         print("Sisa saldo: Rp", saldo)
@@ -169,8 +166,9 @@ else:
         print("|_______________________|")
         # print_slow("🚗💨💨💨💨💨💨💨💨💨💨")
 
-    else:
+else:
         print("❌ Saldo tidak cukup.")
+
 
 
 
