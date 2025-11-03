@@ -1,29 +1,32 @@
-# Guys aku pusing ini anggep aja kita ambil tol Cipali
-
-
 # ================================= KAMUS ===================================================
 # ---------------------------------Setting---------------------------------------------------
-# tarif_cipali = int (ini tuh tarif dihtung dari gerbang cipali, cuma nanti kita masuk sesuai input pengguna)
+# tarif_cipali = int (tarif dihtung dari gerbang cipali, nanti kita masuk sesuai input pengguna)
 # gerbang = string
+# pengali_golong = int
+# golonganKendaraan = string
 
 # ------------------------------dalam sistem---------------------------------
 # Masukk
-# lokasi_masuk = int(input) = nanti kita kasih pilihan terus mereka input angka
+# saldo = int(input)
+# kartu = bool
+# lokasisesuai, golongansesuai, kartuterdeteksi = bool
+# lokasi_masuk, golongan = int(input)
+# deteksi = str(input)
 # gerbang_masuk = gerbang[lokasi_masuk] = string
-# jarak_masuk = jarak_cipali[lokasi_masuk]
 # tarif_masuk = tarif_cipali[lokasi_masuk] = int
 
-# Keluarr
-# lokasi_keluar = konsepnya sama kayak lokasi masuk
-# gerbang_keluar = gerbang[lokasi_keluar] = string
-# jarak_keluar = jarak_cipali[keluar]
-# tarif_keluar = tarif_cipali[lokasi_keluar]
+# Dalam tol
+# lokasi_keluar = int(input)
+# gerbang_keluar = gerbang[posisi] = string
+# tarif_keluar = tarif_cipali[posisi]
+
+#Keluar
+# tarif = int (tarif total)
+# deteksi = str(input)
 
 # Pembayaran
-# Ini jadiin def aja biar bisa aku call di akhir pls <3
-# semuanya sih dijadiin def kalau bisa, aku bingung kalau ga def dipanggilnya gimana
-# nanti fungsi pembayaran def pembayaran() aja yak
-# def pembayaran = bool aja hasilnya
+# saldo = int
+# tarif = int
 
 # ==================== DATA DASAR =================================
 gerbang = ["Cikopo", "Kalijati", "Subang", "Cikedung",
@@ -107,8 +110,6 @@ while True:
     if pilihan == "1":
         tarif_keluar = tarif_cipali[posisi + 1]
         posisi += 1
-    elif pilihan == "2" and posisi == lokasi_masuk - 1:
-        print("❌ Tidak bisa keluar di gerbang yang sama! Silakan lanjut ke gerbang selanjutnya terlebih dahulu.")
     elif pilihan == "2":
         tarif_keluar = tarif_cipali[posisi]
         print(f"Anda keluar dari tol {gerbang[posisi]}")
@@ -122,6 +123,8 @@ pengali = pengali_golongan[golongan - 1]
 gerbang_keluar = gerbang[posisi]
 
 tarif = (tarif_keluar - tarif_masuk)*pengali
+print(f"keluar{tarif_keluar}")
+print(f"masuk{tarif_masuk}")
 
 print("🚗 Anda mendekati gerbang keluar...")
 
